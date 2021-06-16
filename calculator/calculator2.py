@@ -22,6 +22,9 @@ class MainApp(App):
                 h_layout.add_widget(button)
             main_layout.add_widget(h_layout)
 
+        equals_button = Button(text="=", pos_hint={"center_x": 0.5, "center_y": 0.5})
+        main_layout.add_widget(equals_button)
+
         return main_layout
 
 

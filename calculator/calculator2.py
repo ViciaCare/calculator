@@ -24,6 +24,7 @@ class MainApp(App):
             main_layout.add_widget(h_layout)
 
         equals_button = Button(text="=", pos_hint={"center_x": 0.5, "center_y": 0.5})
+        equals_button.bind(on_press=self.on_solution)
         main_layout.add_widget(equals_button)
 
         return main_layout
@@ -33,6 +34,13 @@ class MainApp(App):
             self.solution.text = ""
         else:
             self.solution.text += instance.text
+
+    def on_solution(self, instance):
+        if self.solution.text:
+            try:
+                self.solution.text = str(eval(self.solution.text))
+            except:
+                self.solution.text = "Error"
 
 
 MainApp().run()
